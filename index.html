@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071a2f">
+<title>تقييم بوث الأمن السيبراني</title>
+<style>
+:root {
+  --bg:#071a2f;
+  --panel:#102741;
+  --cyan:#54e3e8;
+  --mint:#a5f3df;
+  --text:#edf7ff;
+  --muted:#a9bfd2;
+  --line:rgba(145,197,224,.25);
+}
+* { box-sizing:border-box; }
+body {
+  margin:0; min-height:100vh; padding:24px 15px;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif;
+  color:var(--text); background:
+  radial-gradient(circle at 85% 5%,rgba(84,227,232,.16),transparent 30%),var(--bg);
+}
+.wrap { max-width:540px; margin:auto; }
+header { text-align:center; margin-bottom:20px; }
+.shield {
+  font-size:38px; width:72px; height:72px; display:grid; place-items:center;
+  margin:0 auto 14px; border:1px solid #28616f; border-radius:22px;
+  background:#102b49;
+}
+.eyebrow { color:var(--cyan); font-size:12px; letter-spacing:2px; font-weight:bold; }
+h1 { font-size:30px; margin:10px 0; }
+.intro { color:var(--muted); line-height:1.9; }
+.card {
+  padding:25px; background:rgba(16,39,65,.96);
+  border:1px solid var(--line); border-radius:22px;
+  box-shadow:0 18px 50px #0003;
+}
+.question { font-weight:bold; font-size:17px; margin:0 0 14px; }
+.stars {
+  display:flex; flex-direction:row-reverse; justify-content:center;
+  gap:8px; margin:10px 0;
+}
+.stars input { position:absolute; opacity:0; }
+.stars label { font-size:39px; color:#496176; cursor:pointer; }
+.stars label:hover,.stars label:hover~label,
+.stars input:checked~label { color:#ffd166; }
+.hint { text-align:center; color:var(--muted); font-size:13px; margin-bottom:25px; }
+.options { display:grid; gap:10px; }
+.option {
+  display:flex; align-items:center; gap:10px; padding:13px;
+  border:1px solid var(--line); border-radius:12px; cursor:pointer;
+}
+.option:has(input:checked) { border-color:var(--cyan); background:#54e3e811; }
+input[type=radio] { accent-color:var(--cyan); }
+.field-label { display:block; font-weight:bold; margin:22px 0 9px; }
+textarea {
+  width:100%; min-height:85px; padding:12px; font:inherit;
+  color:var(--text); background:#071a2f; border:1px solid var(--line);
+  border-radius:12px; resize:vertical;
+}
+.submit {
+  width:100%; padding:15px; margin-top:20px; border:0; border-radius:12px;
+  color:#062034; background:linear-gradient(100deg,var(--cyan),var(--mint));
+  font:inherit; font-weight:bold; font-size:16px; cursor:pointer;
+}
+.privacy { color:var(--muted); font-size:12px; line-height:1.8; text-align:center; }
+.hidden { display:none !important; }
+.notice-icon { text-align:center; font-size:42px; }
+.notice h2 { text-align:center; font-size:25px; }
+.lead { text-align:center; line-height:1.9; }
+.tips { display:grid; gap:12px; margin-top:22px; }
+.tip {
+  display:flex; gap:12px; padding:13px; line-height:1.8;
+  background:#ffffff08; border:1px solid var(--line); border-radius:13px;
+}
+.tip b { color:var(--cyan); }
+.final-note {
+  margin-top:20px; padding:13px; color:var(--mint);
+  background:#54e3e810; border-right:3px solid var(--cyan); line-height:1.8;
+}
+footer { text-align:center; color:#6f8ba4; font-size:11px; margin-top:18px; }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <div class="shield">🛡️</div>
+    <div class="eyebrow">CYBERSECURITY AWARENESS</div>
+    <h1>رأيك يهمّنا!</h1>
+    <p class="intro">قيّم تجربتك في بوث الأمن السيبراني، وبعدها خذ معك تذكيرًا بسيطًا يحميك في العالم الرقمي.</p>
+  </header>
+
+  <section class="card" id="survey">
+    <form id="feedbackForm">
+      <p class="question">كيف تقيّم تجربتك في البوث؟</p>
+
+      <div class="stars">
+        <input type="radio" id="star5" name="rating" value="5" required>
+        <label for="star5" title="ممتاز">★</label>
+        <input type="radio" id="star4" name="rating" value="4">
+        <label for="star4" title="جيد جدًا">★</label>
+        <input type="radio" id="star3" name="rating" value="3">
+        <label for="star3" title="جيد">★</label>
+        <input type="radio" id="star2" name="rating" value="2">
+        <label for="star2" title="مقبول">★</label>
+        <input type="radio" id="star1" name="rating" value="1">
+        <label for="star1" title="يحتاج تحسين">★</label>
+      </div>
+      <p class="hint">اختَر من نجمة واحدة إلى خمس نجوم</p>
+
+      <p class="question">هل تعلّمت شيئًا جديدًا اليوم؟</p>
+      <div class="options">
+        <label class="option"><input type="radio" name="learned" value="yes" required> نعم، أكيد! ✨</label>
+        <label class="option"><input type="radio" name="learned" value="some"> تعلّمت بعض الأشياء</label>
+        <label class="option"><input type="radio" name="learned" value="no"> أحتاج معلومات أكثر</label>
+      </div>
+
+      <label class="field-label" for="suggestion">اقتراحك لنا (اختياري)</label>
+      <textarea id="suggestion" name="suggestion" maxlength="300" placeholder="وش الشيء اللي تتمنى نشوفه في البوث القادم؟"></textarea>
+
+      <button class="submit" type="submit">إرسال التقييم ←</button>
+      <p class="privacy">نموذج تجريبي: لا يتم إرسال إجاباتك أو حفظها على أي خادم.</p>
+    </form>
+  </section>
+
+  <section class="card hidden" id="notice" aria-live="polite">
+    <div class="notice-icon">🔐</div>
+    <h2>لحظة توعوية قبل ما تمشي!</h2>
+    <p class="lead">
+      مو كل رابط آمن، ومو كل رمز QR يستحق المسح.<br>
+      <strong>فضولك الرقمي يحتاج معه شوية حذر 💙</strong>
+    </p>
+
+    <div class="tips">
+      <div class="tip"><b>01</b><div><strong>تأكد قبل ما تضغط.</strong><br>افحص عنوان الرابط وانتبه للأسماء الغريبة والأخطاء الإملائية.</div></div>
+      <div class="tip"><b>02</b><div><strong>QR مو ضمان للأمان.</strong><br>قد يوجّهك لموقع مزيف أو صفحة تسرق بياناتك. امسح فقط الرموز من مصادر موثوقة.</div></div>
+      <div class="tip"><b>03</b><div><strong>لا تشارك معلوماتك الحساسة.</strong><br>لا تدخل كلمة المرور أو بياناتك البنكية في صفحة وصلتك من رابط مشبوه.</div></div>
+      <div class="tip"><b>04</b><div><strong>إذا شكّيت، اطلع.</strong><br>أغلق الصفحة ولا تحمّل ملفات أو تطبيقات غير موثوقة.</div></div>
+    </div>
+
+    <div class="final-note">تذكّر: توقّف، تحقّق، ثم اضغط. سلامتك الرقمية تبدأ بقرار صغير! 🛡️</div>
+    <button class="submit" type="button" id="backBtn">العودة للتقييم</button>
+  </section>
+
+  <footer>فكّر قبل ما تمسح • Think Before You Scan</footer>
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("feedbackForm");
+  const survey = document.getElementById("survey");
+  const notice = document.getElementById("notice");
+  const backBtn = document.getElementById("backBtn");
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    survey.classList.add("hidden");
+    notice.classList.remove("hidden");
+    notice.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  backBtn.addEventListener("click", function () {
+    notice.classList.add("hidden");
+    survey.classList.remove("hidden");
+    survey.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+});
+</script>
+</body>
+</html>
